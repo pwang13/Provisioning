@@ -1,0 +1,4 @@
+sudo apt-get npm
+npm install nodejs
+npm install aws-sdk
+npm install python2

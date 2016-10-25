@@ -1,0 +1,26 @@
+
+---
+- hosts: myServers
+  become: yes
+  become_method: sudo
+
+
+
+
+  tasks:
+  - name: Install Packages
+    apt: name={{ item }} update_cache=yes state=latest
+    with_items:
+      - build-essential
+      - npm
+
+  - name: Install pm2
+    npm: 
+      name: "{{ item }}" 
+      global: yes 
+      production: yes
+      executable: "/usr/bin/npm"
+    with_items:
+      - git
+      - nodejs
+
